@@ -1,0 +1,5 @@
+/**
+ * Created by dell on 2017/5/10.
+ */
+var read=require("./libo")
+console.log(read)
