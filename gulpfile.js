@@ -1,12 +1,10 @@
 const gulp=require("gulp");
 const concat=require("gulp-concat");//合并
-const rename=require("gulp-rename");//改名
 const zcss=require("gulp-minify-css");//压缩css
 const sass=require("gulp-sass");//压缩scss
 const browserify=require("gulp-browserify");// 模块化打包
 const gulpUglify=require("gulp-uglify");//压缩js
 const webserver=require("gulp-webserver");//开服务
-const images=require("gulp-imagemin");//图片压缩
 const rev=require("gulp-rev");// DW5加密。版本控制 修改未见文件后缀名
 const url=require("url");//获取地址
 const collector=require("gulp-rev-collector");//改变路径
