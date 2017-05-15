@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body ng-app="myapp">
+    <div ng-controller="ft">
+
+    </div>
+</body>
+<script src="../js/common/angular.js"></script>
+<script src="../js/common/jquery.js"></script>
+<script>
+    var app=angular.module("myapp",[])
+    app.controller("ft",function($scope){
+
+    })
+    app.run(function($q,$http){
+        var $defer1=$q.defer()
+        var $defer2=$q.defer()
+
+        setTimeout(function(){
+            $defer1.resolve("计时器1")
+        },1000)
+        setTimeout(function(){
+            $defer2.resolve("计时器2")
+        },2000)
+
+//        $defer1.promise.then(function(data){
+//            console.log(data)
+//            return $defer2.promise
+//        }).then(function(data){
+//            console.log(data)
+//        })
+//        $q.when($defer1,$defer2).done(function(data1,data2){
+//            console.log("ok")
+//            console.log(data2)
+//        }).fail(function(err1,err2){
+//            conaole.log("no")
+//        })
+        $q.all([$defer1.promise,$defer2.promise]).then(function(data1){
+            console.log(data1)
+        })
+    })
+</script>
+</html>
