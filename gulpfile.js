@@ -13,7 +13,11 @@ const datajson=require("./data/main.js");//ÒýÈëmain.js
 gulp.task("concat",function(){
     gulp.src("src/js/*.js")
         .pipe(gulpUglify())
+<<<<<<< HEAD
         //.pipe(concat("cancat.js"))
+=======
+        .pipe(concat("cancat.js"))
+>>>>>>> 27f76e04705ef139d60d54b996f9a0d53a09a305
         .pipe(browserify({
             insertGlobals : true,
             debug : !gulp.env.production
@@ -67,11 +71,16 @@ gulp.task("webserver",["build"],function(){
                 })
                 next()
             },
+<<<<<<< HEAD
             open: "/html/biaoge.html"
+=======
+            open: "/html/index.html"
+>>>>>>> 27f76e04705ef139d60d54b996f9a0d53a09a305
         }))
 })
 //Â·¾¶Ìæ»»
 gulp.task("htmlrev",function() {
+<<<<<<< HEAD
        setTimeout(function(){
            gulp.src(["rev/**/*.json","src/html/*.html"])
            .pipe(collector({
@@ -84,6 +93,17 @@ gulp.task("htmlrev",function() {
                .pipe(gulp.dest("build/html"))
        },3000)
 
+=======
+    gulp.src(["rev/**/*.json","src/html/*.html"])
+        .pipe(collector({
+            replaceReved:true,
+            dirReplacements:{
+                "css":"css",
+                "js":"js"
+            }
+        }))
+        .pipe(gulp.dest("build/html"))
+>>>>>>> 27f76e04705ef139d60d54b996f9a0d53a09a305
 
 })
 gulp.task("build",["concat","rev","htmlrev"]);
