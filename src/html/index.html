@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kugou</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link type="text/css" rel="stylesheet" href="../css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="../css/iconfont.css">
+    <link type="text/css" rel="stylesheet" href="../css/reset.css">
+    <link type="text/css" rel="stylesheet" href="../css/common.css">
+    <link type="text/css" rel="stylesheet" href="../css/style.css">
+    <link type="text/css" rel="stylesheet" href="../css/newsong.css">
+
+</head>
+<body ng-app="myapp">
+    <div class="tab">
+        <header class="header">
+            <div class="left">
+                <i class="iconfont icon-k logo f16"></i>
+                <b>酷狗音乐</b>
+                <span>下载酷狗</span>
+            </div>
+            <div class="right">
+                <i class="iconfont icon-sou search f14"></i>
+            </div>
+        </header>
+        <div class="content">
+            <ul>
+                <li><a href="#/">新歌</a></li>
+                <li><a href="#/ranking">排行</a></li>
+                <li><a href="#/sheet">歌单</a></li>
+                <li><a href="#/singer">歌手</a></li>
+            </ul>
+            <div ng-view>
+
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../js/common/angular.js"></script>
+<script src="../js/common/angular-route.js"></script>
+<script>
+    var app=angular.module("myapp",["ngRoute"])
+
+            .config(function($routeProvider){
+                $routeProvider
+                        .when("/",{
+                            templateUrl:"first.html",
+//                            controller:"first"
+                        })
+                        .when("/ranking",{
+                            templateUrl:"rangking.html",
+//                            controller:"home"
+                        })
+                        .when("/sheet",{
+                            templateUrl:"sheet.html",
+//                            controller:"home"
+                        })
+                        .when("/singer",{
+                            templateUrl:"singer.html",
+//                            controller:"home"
+                        })
+
+            })
+
+</script>
+</html>
