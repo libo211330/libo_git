@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body ng-app="myapp">
+    <div ng-controller="ft">
+        <p>{{1223456789 | number }}</p>
+        <p>{{1223456789 | number:4 }}</p>
+        <p>{{1223456789 | currency:"￥" }}</p>
+        <p>{{today | date:"y-M-d H:m:s" }}</p>
+        <p>{{1234567897 | limitTo:3}}</p>
+        <p>{{1234567897 | limitTo:-3}}</p>
+        <p>{{data | orderBy:"id"}}</p>
+        <p>{{data | orderBy:"-id"}}</p>
+        <p>{{data | filter:{"name":"伟"} }}</p>
+        <p>{{data | filter:"李" }}</p>
+        <p>{{json.city | filename }}</p>
+
+    </div>
+
+</body>
+<script src="js/common/angular.js"></script>
+<script src="js/common/jquery.js"></script>
+<script>
+    var app=angular.module("myapp",[]);
+
+    app.controller("ft",function($scope){
+            $scope.today=new Date()
+        $scope.data=[
+            {"age":18,"id":16,"name":"李泊"},
+            {"age":23,"id":17,"name":"邓伟"},
+            {"age":10,"id":30,"name":"师文杰"}
+        ];
+        $scope.json={
+               city: [
+                   {
+                     "age":20,
+                     "id":1
+                   },
+                   {
+                       "age":20,
+                       "id":15
+                   }
+               ]
+
+        }
+        $scope.filename=function(data){
+            if(data.id.indexOf(1)==-1)
+                return false;
+                return true;
+        }
+    })
+</script>
+</html>
