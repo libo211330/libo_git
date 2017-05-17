@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body ng-app="myapp">
+<div ng-controller="ft">
+
+</div>
+
+</body>
+</html>
+<script src="../js/common/angular.js"></script>
+<script src="../js/common/jquery.js"></script>
+<script>
+    var app=angular.module("myapp",[])
+    app.controller("ft",function($scope,firstS,server,factoryd,factoryds,appa){
+            console.log(firstS)
+            console.log(server)
+            console.log(factoryd)
+            console.log(factoryds)
+            console.log(appa)
+    })
+    app.config(function($provide){
+        //自创建服务
+        $provide.provider("firstS",function(){
+            this.$get=function(){
+
+                return "fisrt messago"
+
+            }
+        })
+        $provide.provider("firstg",function(){
+            this.$get=function(){
+                return {
+                    name:"fisrt messago"
+                }
+            }
+        });
+        //service方法
+        $provide.service("server",function(){
+            return {
+                name:"libo"
+            }
+        });
+        //factory 方法
+        $provide.factory("factoryd",function(){
+            return {
+                name:"shi"
+            }
+        })
+        $provide.factory("factoryds",function(){
+            return "shi"
+
+        });
+
+    })
+    app.factory("appa",function(){
+        return "sjdfk"
+    })
+
+
+</script>
