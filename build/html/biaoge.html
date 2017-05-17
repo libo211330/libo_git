@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            padding-top: 20px;
+            padding-left: 50px;
+        }
+        table{
+            border-collapse:collapse;
+            margin-top: 50px;
+        }
+        table thead{
+            border-bottom:1px solid #ccc;
+        }
+
+        table td{
+            width: 100px;
+            height: 35px;
+            margin: 0 200px;
+            border-bottom:1px solid #ccc;
+        }
+        button{
+            border-width:0;
+        }
+    </style>
+</head>
+<body ng-app="myapp">
+<div ng-controller="ft">
+    <input type="text" ng-model="spl.ids">
+    <button ng-click="btn()">查询</button>
+    <table>
+        <thead>
+            <tr>
+                <td ng-click="change('ids')">编号</td>
+                <td ng-click="change('name')">产品</td>
+                <td ng-click="change('money')">价格</td>
+            </tr>
+        </thead>
+        <tbody ng-repeat="item in data | filter : spl | orderBy : orders + type ">
+            <tr>
+                <td>{{item.ids}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.money}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+<script src="../js/common/angular.js"></script>
+<script src="../js/common/jquery.js"></script>
+<script>
+    var app=angular.module("myapp",[]);
+//    app.factory("data",function(){
+//        return [
+//            {
+//                "ids":12,
+//                "name":"mini1",
+//                "money":1350
+//            },
+//            {
+//                "ids":22,
+//                "name":"mini5",
+//                "money":1699
+//            },
+//            {
+//                "ids":36,
+//                "name":"mini4",
+//                "money":1550
+//            },
+//            {
+//                "ids":3,
+//                "name":"mini6puls",
+//                "money":1999
+//            },
+//            {
+//                "ids":11,
+//                "name":"mini2",
+//                "money":669
+//            },
+//            {
+//                "ids":16,
+//                "name":"mini3",
+//                "money":899
+//            }
+//        ]
+//    })
+    app.controller("ft",function($scope,$http){
+        $http.get("/demo").then(function(res){
+            console.log(res)
+            console.log(res.data)
+            $scope.data=res.data
+        })
+
+        $scope.type=""
+        $scope.orders=""
+        $scope.change=function(i){
+            $scope.type=i;
+            if($scope.orders==""){
+                $scope.orders="-"
+            }else{
+                $scope.orders=""
+
+            }
+        }
+
+    })
+
+</script>
+</html>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+<<<<<<< HEAD
+    <file url="file://$PROJECT_DIR$/src/html/rangking.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/html/sheet.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/html/singer.html" charset="UTF-8" />
+=======
+    <file url="file://$PROJECT_DIR$/src/js/libo.js" charset="UTF-8" />
+>>>>>>> a1ba136161edbe0745b8bc642344884ddef4b301
+  </component>
+</project>
